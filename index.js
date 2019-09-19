@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
     path: '/',
     handler: (request, h) => {
 
-      return 'Hello World!';
+      return 'Bye Buddy!';
     }
   });
 
