@@ -1,5 +1,6 @@
 'use strict';
 
+// import HapiPassport from 'passport-hapi-oauth';
 const Hapi = require('@hapi/hapi');
 const passport = require('passport'); //possibly remove
 const GoogleStrategy = require('passport-google-oauth20').Strategy; //possibly remove
@@ -11,8 +12,9 @@ const init = async () => {
   
   const server = Hapi.server({
     port: port
-    // host: 'localhost'
   });
+
+
 
   passport.use(
     new GoogleStrategy(
@@ -27,10 +29,20 @@ const init = async () => {
     )
   );  
   
+  server.route({
+    method: 'GET',
+    path: '/auth/google',
+    handler: (request, reply) => {
+      (passport.authenticate('google', {
+        scope: ['profile', 'email']
+      })
+      )
+    }
+
   
   await server.start();
   console.log('Server running on %s', server.info.uri);
-};
+
 
 process.on('unhandledRejection', (err) => {
   
@@ -39,12 +51,3 @@ process.on('unhandledRejection', (err) => {
 });
 
 init();
-
-  // server.route({
-  //   method: 'GET',
-  //   path: '/',
-  //   handler: (request, h) => {
-  
-  //     return 'Bye Buddy!';
-  //   }
-  // });

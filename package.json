@@ -14,7 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/hapi": "^18.4.0",
-    "passport-google-oauth20": "^2.0.0",
-    "passport-hapi-oauth": "^1.5.6"
+    "passport-google-oauth20": "^2.0.0"
   }
 }
