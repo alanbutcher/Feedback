@@ -1,9 +1,15 @@
-module.exports = {
-  googleClientID: '732572075263-foholj9350drkv4n3jst5k9e93b4i6ms.apps.googleusercontent.com',
-  googleClientSecret: 'ELYYysvfgSqp2uBTpe7Kp4XR',
-  mongoURI: 'mongodb://abutcher:ab1234@ds019786.mlab.com:19786/feedbackapp-dev',
-  cookieKey: 'yumcookies'
-};
+//keys.js - figure out what set of creds to return
+
+if (process.env.NODE_ENV === 'production') {
+  //in production - return the prod set of keys
+  module.exports = require('./prod');
+} else {
+  // in dev - return dev set of keys
+  module.exports = require('./dev');
+}
+
+
+
 
 //production db
 // mongodb://alanb:password1234@ds031883.mlab.com:31883/feedbackapp-prod
