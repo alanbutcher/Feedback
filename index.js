@@ -25,10 +25,6 @@ require('./routes/authRoutes')(app);
 
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT);
 
-// https://infinite-caverns-55145.herokuapp.com/
-// https://infinite-caverns-55145.herokuapp.com/
-
-// mongodb + srv://<abutcher>:<PassWord2019!>@feedbackapp-prod-k1cha.mongodb.net/test?retryWrites=true&w=majority
