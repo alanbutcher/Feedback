@@ -8,3 +8,5 @@ export default function (state = null, action) {
       return state;  
   }
 }
+
+//authReducer looking for FETCH_USER in actions, can be either current user or updated user
