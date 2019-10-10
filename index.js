@@ -24,8 +24,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+//reuire the route function, then immediatley call it with the app object
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 //routes in production
 if (process.env.NODE_ENV === 'production') {
