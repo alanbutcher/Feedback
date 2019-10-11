@@ -19,6 +19,11 @@ module.exports = app => {
     res.send('Thanks so much for giving us your feedback!');
   })
 
+  app.post('/api/surveys/webhooks', (req, res) => {
+    console.log(req.body);
+    res.send({});
+ })
+
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
     //access properties of the incoming req body object(title, subject, body, recipt)
     const { title, subject, body, recipients } = req.body
