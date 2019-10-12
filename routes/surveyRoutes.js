@@ -17,7 +17,15 @@ const Survey = mongoose.model('surveys'); //access to model class Survey
 //redirect user after giving feedback
 //create a new survey
 module.exports = app => {
-  app.get('/api/surveys/thanks', (req, res) => {
+  app.get('/api/surveys', requireLogin, async (req, res) => {
+    const surveys = await Survey.find({ _user: req.user.id })
+      .select({ recipients: false });
+
+    res.send(surveys);
+  });
+
+
+  app.get('/api/surveys/:surveyId/:choice', (req, res) => {
     res.send('Thanks so much for giving us your feedback!');
   })
 
@@ -43,7 +51,8 @@ module.exports = app => {
         },
           {
             $inc: { [choice]: 1 },
-            $set: { 'recipients.$.responded': true }
+            $set: { 'recipients.$.responded': true },
+            lastResponded: new Date()
           }).exec();
       })
       .value();
