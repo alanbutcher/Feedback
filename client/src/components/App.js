@@ -32,3 +32,6 @@ class App extends Component {
 };
 
 export default connect(null, actions)(App);
+
+// heroku link for new sendgrid account
+// https://git.heroku.com/infinite-caverns-55145.git

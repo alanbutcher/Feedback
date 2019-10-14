@@ -6,9 +6,13 @@ const Landing = () => {
   return (
     <div style={{ textAlign: 'center' }}>
       <h1>
-        Feedback!
+        FeedBack
       </h1>
-      Collect feedback from oyur users
+      <ul>
+      <li>Buy Credits</li>
+      <li>Use Credits to Send Surveys</li>
+        <li>Collect Feedback from your Users!</li>
+      </ul>  
     </div>
 
   )
